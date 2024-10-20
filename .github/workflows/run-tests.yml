@@ -27,8 +27,9 @@ jobs:
         run: composer install -q --no-interaction
 
       - name: Prepare environment
-        run: cp .env.example .env
-        run: php artisan key:generate
+        run: |
+            cp .env.example .env
+            php artisan key:generate
 
 
       - name: Run tests
