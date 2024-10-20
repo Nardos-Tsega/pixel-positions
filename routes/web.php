@@ -10,3 +10,7 @@ Route::get('/jobs', function () {
     return view('welcome');
 });
 
+Route::get('/jobs', function () {
+    return view('welcome');
+});
+
