@@ -5,6 +5,11 @@ on:
     types:
       - closed
 
+# Add this permissions block
+permissions:
+  pull-requests: write
+  issues: write
+
 jobs:
   no-plans-to-merge:
     runs-on: ubuntu-latest
@@ -13,6 +18,7 @@ jobs:
       - name: Create comment on PR
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -20,4 +26,3 @@ jobs:
               repo: context.repo.repo,
               body: 'No plans to merge this pull request🤓'
             })
-          token: ${{ secrets.GITHUB_TOKEN }}
