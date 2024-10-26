@@ -1,7 +1,3 @@
-@php
-    $classes = "p-4 bg-white/5 rounded-xl border border-transparent hover:border-blue-800 group transition-colors duration-300"
-@endphp
-
-<div {{ $attributes(['class' => $classes]) }}>
+<div {{ $attributes->merge(['class' => 'bg-gray-900 rounded-lg p-6 shadow-xl border border-gray-800']) }}>
     {{ $slot }}
 </div>
