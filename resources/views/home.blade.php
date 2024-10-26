@@ -51,7 +51,7 @@
                 <!-- Stats -->
                 <div class="grid grid-cols-3 gap-4 pt-8">
                     <div class="text-center">
-                        <div class="text-3xl font-bold text-blue-600">500+</div>
+                        <div class="text-3xl font-bold text-blue-600">200+</div>
                         <div class="text-sm text-gray-600 dark:text-gray-400">Industry Experts</div>
                     </div>
                     <div class="text-center">
