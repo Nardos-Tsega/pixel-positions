@@ -1,0 +1,25 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-DQdiQi6H.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/images/homepage/ai_assisted.png": {
+    "file": "assets/ai_assisted-DhaCOY4j.png",
+    "src": "resources/images/homepage/ai_assisted.png"
+  },
+  "resources/images/homepage/hero.jpg": {
+    "file": "assets/hero-DZrd6G7d.jpg",
+    "src": "resources/images/homepage/hero.jpg"
+  },
+  "resources/images/logo.svg": {
+    "file": "assets/logo-C1JFSJ8D.svg",
+    "src": "resources/images/logo.svg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-z-Rg4TxU.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
