@@ -48,11 +48,11 @@ jobs:
           --exclude='storage/framework/cache/*' \
           --exclude='storage/framework/sessions/*' \
           --exclude='storage/framework/views/*' \
-          ./ ${{ secrets.SSH_USER }}@${{ secrets.HOST }}:/var/www/talentbridge
+          ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.HOST }}:/var/www/talentbridge
 
     - name: Post Deploy Commands
       run: |
-        ssh -i ~/.ssh/deploy_key ${{ secrets.SSH_USER }}@${{ secrets.HOST }} "cd /var/www/talentbridge && \
+        ssh -i ~/.ssh/deploy_key ${{ secrets.SSH_USERNAME }}@${{ secrets.HOST }} "cd /var/www/talentbridge && \
           php artisan storage:link && \
           php artisan migrate --force && \
           php artisan optimize:clear && \
