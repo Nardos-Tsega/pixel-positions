@@ -21,10 +21,11 @@
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/courses" class="text-gray-300 hover:text-white transition">Courses</a>
-                    <a href="/mentors" class="text-gray-300 hover:text-white transition">Mentors</a>
-                    <a href="/companies" class="text-gray-300 hover:text-white transition">Companies</a>
-                    <a href="/about" class="text-gray-300 hover:text-white transition">About</a>
+                    <a href="/careers" class="text-gray-600 hover:text-blue-600 transition">Careers</a>
+                    <a href="/courses" class="text-gray-600 hover:text-blue-600 transition">Courses</a>
+                    <a href="/mentorship" class="text-gray-600 hover:text-blue-600 transition">Mentorship</a>
+                    <a href="/companies" class="text-gray-600 hover:text-blue-600 transition">Companies</a>
+                    <a href="/about" class="text-gray-600 hover:text-blue-600 transition">About</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
