@@ -8,8 +8,8 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-black text-white font-sans antialiased">
-    <header class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+<body class="bg-white text-white font-sans antialiased">
+    <header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-sm">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
@@ -25,11 +25,11 @@
                     <a href="/courses" class="text-gray-600 hover:text-blue-600 transition">Courses</a>
                     <a href="/mentorship" class="text-gray-600 hover:text-blue-600 transition">Mentorship</a>
                     <a href="/companies" class="text-gray-600 hover:text-blue-600 transition">Companies</a>
-                    <a href="/about" class="text-gray-600 hover:text-blue-600 transition">About</a>
+                    <a href="/marketplace" class="text-gray-600 hover:text-blue-600 transition">Marketplace</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <a href="/login" class="text-gray-300 hover:text-white transition">Login</a>
+                    <a href="/login" class="text-gray-800 hover:text-gray-900 transition">Login</a>
                     <a href="/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
                         Get Started
                     </a>
@@ -42,23 +42,25 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-gray-900 border-t border-gray-800">
+    <footer class="bg-gray-100 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-white font-semibold mb-4">SkillBridge</h3>
+                    <h3 class="text-gray-900 font-semibold mb-4">SkillBridge</h3>
                     <p class="text-gray-400 text-sm">Bridging the gap between education and industry through practical skills and real connections.</p>
                 </div>
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                    <h3 class="text-gray-900 font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-sm">
                         <li><a href="/courses" class="text-gray-400 hover:text-white transition">Courses</a></li>
                         <li><a href="/mentors" class="text-gray-400 hover:text-white transition">Mentors</a></li>
                         <li><a href="/companies" class="text-gray-400 hover:text-white transition">Companies</a></li>
+                        <li><a href="/marketplace" class="text-gray-400 hover:text-white transition">Marketplace</a></li>
+                        <li><a href="/about" class="text-gray-400 hover:text-white transition">About</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Support</h3>
+                    <h3 class="text-gray-900 font-semibold mb-4">Support</h3>
                     <ul class="space-y-2 text-sm">
                         <li><a href="/contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
                         <li><a href="/faq" class="text-gray-400 hover:text-white transition">FAQ</a></li>
@@ -66,7 +68,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-white font-semibold mb-4">Connect</h3>
+                    <h3 class="text-gray-900 font-semibold mb-4">Connect</h3>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition">
                             <span class="sr-only">Twitter</span>
@@ -79,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
                 <p class="text-gray-400 text-sm">&copy; 2024 SkillBridge. All rights reserved.</p>
             </div>
         </div>

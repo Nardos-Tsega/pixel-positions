@@ -23,6 +23,11 @@ Route::get('/companies', function () {
     return view('pages.companies');
 });
 
+
+Route::get('/marketplace', function () {
+    return view('pages.marketplace');
+});
+
 Route::get('/about', function () {
     return view('pages.about');
 });
