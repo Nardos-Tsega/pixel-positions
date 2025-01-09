@@ -26,6 +26,7 @@
                     <a href="/mentorship" class="text-gray-600 hover:text-blue-600 transition">Mentorship</a>
                     <a href="/companies" class="text-gray-600 hover:text-blue-600 transition">Companies</a>
                     <a href="/marketplace" class="text-gray-600 hover:text-blue-600 transition">Marketplace</a>
+                    <a href="/sponsorship" class="text-gray-600 hover:text-blue-600 transition">Sponsorship</a>
                 </div>
 
                 <div class="flex items-center space-x-4">

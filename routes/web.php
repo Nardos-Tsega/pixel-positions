@@ -28,6 +28,11 @@ Route::get('/marketplace', function () {
     return view('pages.marketplace');
 });
 
+Route::get('/sponsorship', function () {
+    return view('pages.sponsorship');
+});
+
+
 Route::get('/about', function () {
     return view('pages.about');
 });
