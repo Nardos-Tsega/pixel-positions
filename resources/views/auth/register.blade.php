@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Register</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
@@ -141,7 +142,7 @@
                         </p>
                     </div>
 
-                    <form action="#" method="POST" class="space-y-6">
+                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                         @csrf
                         <input type="hidden" name="user_type" x-model="userType">
 
@@ -172,9 +173,31 @@
                             </div>
                         </div>
 
-                        <!-- Student Fields -->
+                       <!-- Student Fields -->
                         <template x-if="userType === 'student'">
                             <div class="space-y-6">
+                                <!-- Name Fields -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-1">
+                                        <label for="first_name" class="block text-sm font-medium text-gray-700">First Name*</label>
+                                        <input type="text" id="first_name" name="first_name" x-model="formData.first_name" required
+                                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name*</label>
+                                        <input type="text" id="last_name" name="last_name" x-model="formData.last_name" required
+                                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    </div>
+                                </div>
+
+                                <!-- Contact Info -->
+                                <div class="space-y-1">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" x-model="formData.phone"
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+
+                                <!-- Institution Info -->
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="space-y-1">
                                         <label for="student_id" class="block text-sm font-medium text-gray-700">Student ID</label>
@@ -182,15 +205,63 @@
                                             class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     </div>
                                     <div class="space-y-1">
-                                        <label for="university" class="block text-sm font-medium text-gray-700">University</label>
-                                        <input type="text" id="university" name="university" x-model="formData.university"
+                                        <label for="institution" class="block text-sm font-medium text-gray-700">Institution*</label>
+                                        <input type="text" id="institution" name="institution" x-model="formData.institution" required
                                             class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     </div>
                                 </div>
+
+                                <!-- Academic Info -->
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="space-y-1">
+                                        <label for="field_of_study" class="block text-sm font-medium text-gray-700">Field of Study*</label>
+                                        <input type="text" id="field_of_study" name="field_of_study" x-model="formData.field_of_study" required
+                                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label for="education_level" class="block text-sm font-medium text-gray-700">Education Level*</label>
+                                        <select id="education_level" name="education_level" x-model="formData.education_level" required
+                                            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                            <option value="">Select Level</option>
+                                            <option value="high_school">High School</option>
+                                            <option value="bachelors">Bachelor's Degree</option>
+                                            <option value="masters">Master's Degree</option>
+                                            <option value="phd">PhD</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Location -->
                                 <div class="space-y-1">
-                                    <label for="field_of_study" class="block text-sm font-medium text-gray-700">Field of Study</label>
-                                    <input type="text" id="field_of_study" name="field_of_study" x-model="formData.field_of_study"
-                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
+                                    <input type="text" id="location" name="location" x-model="formData.location"
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="City, Country">
+                                </div>
+
+                                <!-- Skills -->
+                                <div class="space-y-1">
+                                    <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+                                    <input type="text" id="skills" name="skills" x-model="formData.skills"
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="e.g., Python, JavaScript, Data Analysis">
+                                </div>
+
+                                <!-- Bio -->
+                                <div class="space-y-1">
+                                    <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
+                                    <textarea id="bio" name="bio" x-model="formData.bio" rows="4"
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        placeholder="Tell us about yourself..."></textarea>
+                                </div>
+
+                                <!-- Profile Picture -->
+                                <div class="space-y-1">
+                                    <label for="profile_path" class="block text-sm font-medium text-gray-700">Profile Picture</label>
+                                    <input type="file" id="profile_path" name="profile_path" x-model="formData.profile_path"
+                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                        accept="image/*">
                                 </div>
                             </div>
                         </template>
@@ -305,9 +376,11 @@
 
                             <div>
                                 <button type="submit"
-                                    class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition duration-200">
-                                    Create Account
-                                </button>
+                                class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition duration-200"
+                                :disabled="loading">
+                                <span x-show="!loading">Create Account</span>
+                                <span x-show="loading">Processing...</span>
+                            </button>
                             </div>
                         </div>
                     </form>
@@ -324,14 +397,44 @@
     </div>
 
     <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('registrationForm', () => ({
-                validateForm() {
-                    // Add your custom validation logic here
-                    return true;
+       document.addEventListener('alpine:init', () => {
+    Alpine.data('registrationForm', () => ({
+        loading: false,
+        errorMessage: '',
+
+        async submitForm(event) {
+            event.preventDefault();
+            this.loading = true;
+            this.errorMessage = '';
+
+            const form = event.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    }
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.message || 'Registration failed');
                 }
-            }))
-        })
+
+                // Redirect on success
+                window.location.href = '/dashboard';
+            } catch (error) {
+                this.errorMessage = error.message;
+            } finally {
+                this.loading = false;
+            }
+        }
+    }));
+});
     </script>
 </body>
 </html>
