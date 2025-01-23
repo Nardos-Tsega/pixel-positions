@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use App\Models\Client;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class RegisterController extends Controller
         try {
             DB::beginTransaction();
 
-            $user = User::create([
+            $user = Client::create([
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'user_type' => $request->user_type,
@@ -30,7 +31,7 @@ class RegisterController extends Controller
 
             if ($request->user_type === 'student') {
                 Student::create([
-                    'user_id' => $user->id,
+                    'client_id' => $user->id,
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
                     'institution' => $request->institution,

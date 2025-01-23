@@ -42,6 +42,6 @@ Route::get('/about', function () {
 Route::get('/login', function () {
     return view('auth.login');
 });
-
+//
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Link to users table
+            $table->foreignId('client_id')->constrained()->onDelete('cascade'); // Link to users table
             $table->string('company_name');
             $table->string('industry');
             $table->enum('company_size', [
