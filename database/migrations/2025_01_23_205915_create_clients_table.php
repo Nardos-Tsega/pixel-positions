@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->unique();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
+            $table->string('verification_id')->nullable();
+            $table->string('verification_code')->nullable();
             $table->enum('user_type', ['student', 'expert', 'company', 'skill_seeker']);
             $table->timestamps();
         });

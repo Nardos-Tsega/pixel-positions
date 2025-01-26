@@ -147,19 +147,11 @@
                         <input type="hidden" name="user_type" x-model="userType">
 
                         <!-- Common Fields -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="space-y-1">
-                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                <input type="text" id="name" name="name" x-model="formData.name"
-                                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
-                            <div class="space-y-1">
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                <input type="email" id="email" name="email" x-model="formData.email"
-                                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            </div>
+                        <div class="space-y-1">
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" x-model="formData.phone"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
-
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="space-y-1">
                                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -190,12 +182,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Contact Info -->
-                                <div class="space-y-1">
-                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                    <input type="tel" id="phone" name="phone" x-model="formData.phone"
-                                        class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                                </div>
 
                                 <!-- Institution Info -->
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -415,6 +401,7 @@
                     method: 'POST',
                     body: formData,
                     headers: {
+                        'Accept': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                     }
                 });

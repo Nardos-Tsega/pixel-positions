@@ -15,7 +15,6 @@ return new class extends Migration
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('phone')->nullable();
             $table->string('institution');
             $table->string('profile_path')->nullable();
             $table->string('field_of_study');

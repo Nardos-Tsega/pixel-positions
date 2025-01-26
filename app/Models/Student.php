@@ -13,7 +13,6 @@ class Student extends Model
         'client_id',
         'first_name',
         'last_name',
-        'phone',
         'institution',
         'profile_path',
         'field_of_study',

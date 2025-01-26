@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\Client;
 use App\Models\Student;
 use App\Models\User;
+use App\Services\SendSmsService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -24,7 +25,7 @@ class RegisterController extends Controller
             DB::beginTransaction();
 
             $user = Client::create([
-                'email' => $request->email,
+                'phone' => $request->phone,
                 'password' => Hash::make($request->password),
                 'user_type' => $request->user_type,
             ]);
@@ -44,14 +45,21 @@ class RegisterController extends Controller
                 ]);
             }
 
+            $smsService = new SendSmsService();
+            $verificationData = $smsService->sendVerificationCode($request->phone);
+
+            $user->update([
+                'verification_id' => $verificationData['verificationId'],
+                'verification_code' => $verificationData['code'] // Store temporarily for testing
+            ]);
+
+
             DB::commit();
 
-            // Log the user in
-            auth()->login($user);
 
             return response()->json([
-                'message' => 'Registration successful',
-                'user' => $user->load('student')
+                'message' => 'Registration successful. Please verify your phone number.',
+                'verification_sent' => true
             ], 201);
 
         } catch(\Exception $e) {
@@ -62,4 +70,6 @@ class RegisterController extends Controller
             ], 500);
         }
     }
+
+
 }
